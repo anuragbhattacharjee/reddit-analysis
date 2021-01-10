@@ -21,5 +21,4 @@ def analyse(subreddit1, subreddit2):
     except Exception as err:
 	    print(f"Counldn\'t find file {subreddit2}.csv")
 
-    subreddit1_df.plot()
-    subreddit2_df.plot()
+    print(f"Please See submission_analysis.ipynb & author_analysis.ipynb notebooks for veiwing analysis.")
