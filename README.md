@@ -10,7 +10,7 @@ This README will guide to install this project and get up and running.
 - Compare two sub reddits based on their metrices
 - Contributer analysis
 
-### How do I get set up?
+### How do I set up?
 
 - git clone https://github.com/anuragbhattacharjee/reddit-analysis.git
 - python3.6 -m venv reddit-analysis-venv
@@ -33,10 +33,19 @@ I have chosen three metrics for comparing contributors in two subreddits:
 - "comment_karma"   : The comment karma for the Redditor.
 - "is_gold"         : Number of contributors in each subreddits with Premium status.
 
+### Procedure
+
+I have chosen pushshift for scraping reddit data with given date. As reddit has stopped supporting datebased searching I had to develop a technique to scrape data for exactly certain period. 
+
+I have scraped details data while iterating through the 100 of data that I got from pushshit in each batch. Pushshift sends 100 data at a time and has some limit of requesting their API. 
+
+So to give a aleep time, I have scraped details of the submission and the author meanwhile and saved them in CSV. This also gave me the opportunity to find out the date of the last post. 
+
+
 ### Notable libraries used for accomplishment
 
-- pushshift : for scraping reddit data for a certain time
-- praw      : for reddit submission and author details data
-- pandas    : for reading csv data and data analysis
-- jupyter   : for showing data analysis
-- matplotlib: for plotting data
+- pushshift : for scraping reddit data for a certain time period. 
+- praw      : for reddit submission and author details data.
+- pandas    : for reading csv data and data analysis.
+- jupyter   : for showing data analysis.
+- matplotlib: for plotting data.
