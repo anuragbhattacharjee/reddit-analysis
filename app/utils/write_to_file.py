@@ -1,29 +1,17 @@
+from utils.get_file_path import get_file_path
+import csv
+import traceback
 
-def write_to_file(filename, data):
+def write_to_file(file_name, data):
+    file_path = get_file_path(file_name)
+    
+    with open(file_path, "a", newline="") as file:
 
-	with open(file_path, "w", newline="") as file:
-		mywriter = csv.writer(file)
+        mywriter = csv.writer(file)
+        try:
+            mywriter.writerow(data)
 
-		for object in data_objects:
-			prawScraper = PrawScraper()
-			submission = prawScraper.scrape_submission_details(object['id'])
-            author = prawScraper.scrape_author_info(object['author'])
-			previous_epoch = object['created_utc'] + 1
-			count += 1
-
-			print(submission.author)
-			try:
-					mywriter.writerow([
-						submission.id,
-						submission.name,
-						submission.num_comments,
-						submission.score,
-						submission.upvote_ratio,
-						submission.is_original_content,
-						submission.spoiler
-					])
-
-				except Exception as err:
-					print(f"Couldn't print post: {object['url']}")
-					print(traceback.format_exc())
-					print(err)
+        except Exception as err:
+            print(f"Couldn't print post: {data[0].name}")
+            print(traceback.format_exc())
+            print(err)
